@@ -1,0 +1,26 @@
+﻿@using CascadingTask.Domain
+@code {
+
+    [Parameter]
+    public EventCallback<User> OnUserSelected { get; set; }
+
+    private List<User> users = new List<User>
+    {
+        new User { Name = "Ahmed", Age = 22, Email = "ahmed@gmail.com" },
+        new User { Name = "Anwar", Age = 22, Email = "anwar@gmail.com" },
+        new User { Name = "Anas", Age = 22, Email = "anas@gmail.com" }
+    };
+
+    private void SelectUser(User user)
+    {
+        OnUserSelected.InvokeAsync(user);
+    }
+}
+<h3>User List</h3>
+@foreach (var user in users)
+{
+    <div @onclick="() => SelectUser(user)">
+        <p>@user.Name</p>
+       
+    </div>
+}

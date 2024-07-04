@@ -1,0 +1,21 @@
+﻿@using CascadingTask.Domain
+@code {
+    [CascadingParameter]
+    public User SelectedUser { get; set; }
+}
+
+@if (SelectedUser != null)
+{
+    <div>
+        <h3>User Details</h3>
+        <p>Name: @SelectedUser.Name</p>
+        <p>Age: @SelectedUser.Age</p>
+        <p>Email: @SelectedUser.Email</p>
+    </div>
+   
+}
+else
+{
+    <h3>User Details</h3>
+    <p>No user selected.</p>
+}

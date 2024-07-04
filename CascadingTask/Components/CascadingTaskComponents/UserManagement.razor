@@ -1,0 +1,27 @@
+﻿@page "/users"
+@rendermode InteractiveServer
+@using CascadingTask.Domain
+
+
+   @*  مكون الأب *@
+<CascadingValue Value="selectedUser">
+
+  @*   المكون الأول : قائمة جميع المستخدمين *@
+    <UserListComponent OnUserSelected="HandleUserSelected" />
+
+  @* المكون الثاني : لعرض تفاصيل مستخدم محدد *@
+    <UserDetailsComponent />
+
+  @* المكون الثالث : لعرض وتحسين الإعدادات العامة للمستخدمين *@
+    <UserSettingsComponent />
+
+</CascadingValue>
+
+@code {
+    private User selectedUser;
+
+    private void HandleUserSelected(User user)
+    {
+        selectedUser = user;
+    }
+}

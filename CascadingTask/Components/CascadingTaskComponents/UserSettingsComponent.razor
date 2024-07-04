@@ -1,0 +1,17 @@
+﻿@using CascadingTask.Domain
+@code {
+    [CascadingParameter]
+    public User SelectedUser { get; set; }
+
+    private bool receiveEmails = true;
+}
+
+<div>
+    <h3>User Settings</h3>
+    <div>
+        <label>
+            <input type="checkbox" @bind="receiveEmails" />
+            Receive emails from us
+        </label>
+    </div>
+</div>
